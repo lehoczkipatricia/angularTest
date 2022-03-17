@@ -1,0 +1,63 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addVehicleModal">
+    Hozzáadás
+  </button>
+  
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Rendszám</th>
+          <th scope="col">Márka</th>
+          <th scope="col">Ár</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vehicle of vehicles">
+            <td>{{vehicle.id}}</td>
+            <td>{{vehicle.plate}}</td>
+            <td>{{vehicle.brand}}</td>
+            <td>{{vehicle.price}}</td>
+        </tr>
+      </tbody>
+</table>
+
+
+
+  <div class="modal fade" id="addVehicleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Új jármű hozzáadása</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form action="" class="form">
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" class="form-control" id="id" placeholder="1" [formControl]="id">
+              </div>
+            <div class="mb-3">
+                <label for="plate" class="form-label">Rendszám</label>
+                <input type="text" class="form-control" id="plate" placeholder="ABC-123" [formControl]="plate">
+              </div>
+            <div class="mb-3">
+                <label for="brand" class="form-label">Márka</label>
+                <input type="text" class="form-control" id="brand" placeholder="Opel" [formControl]="brand">
+              </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Ár</label>
+                <input type="text" class="form-control" id="price" placeholder="500000" [formControl]="price">
+              </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Bezár</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="on_save_button()">Mentés</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
